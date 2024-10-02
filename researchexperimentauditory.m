@@ -30,6 +30,8 @@ rep_emat = repmat(e_mat, n_repeat, 1); % Repeats the matrix n_repeat number of t
 % the randomized matrix
 sorted_rep_emat = sortrows(rep_emat, 1); % Sorts the experimental matrix by trial (makes visualization easier)
 response_array = [sorted_rep_emat(:,1), zeros(size(sorted_rep_emat, 1), 1)]; % Makes an empty array where we can store our keyboard input responses
+% MIGHT NEED TO MAKE THIS A CELL BECAUSE OF THE AUDIO STIM LATER!
+
 % column 1 will be the trial number and column 2 will be the keyboard input
 
 % ---This next segment enables us to predefine the second column values of our
@@ -112,5 +114,5 @@ ShowCursor();
 
 % PLEASE ADD WAY TO MAKE RESPONSES INTO A TXT FILE FOR FURTHER USE
 % NEED TO DOWNLOAD AUDIO FILES
-
+% FIX CELL FOR RESPONSE ARRAY ( Or just make {} for response array (trial_number, 2) ?)
 
