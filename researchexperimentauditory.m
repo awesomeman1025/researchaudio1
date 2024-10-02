@@ -23,7 +23,7 @@ n_repeat = 3; % For now we will say that the experiment is repeated n_repeat * 4
 % Creating the trial experiment matrix, setting the number of trials,
 % randomizing the trials, sorting matrix so it is easier to understand
 e_mat = expmat(1:n_tones, 1:n_dir);
-rep_emat = repmat(emat, n_repeat, 1); % Repeats the matrix n_repeat number of times
+rep_emat = repmat(e_mat, n_repeat, 1); % Repeats the matrix n_repeat number of times
 [e_seq, rep_emat] = randseq(rep_emat); % Randomizes replicated experimental matrix
 % I also want to point out that I do not like using e_seq since it actually
 % provides trial numbers in a different order than how they are listed in
@@ -55,7 +55,7 @@ end % Now our audio_info_mat cell array should store audio files respective to t
 % and the array below actually lets us read each audio file. 
 
 audio_data_mat = cell(size(audio_file_mat)); % Creating a new array which will be the same size as our previously defined audio_file_mat
-for x = 1:length(audio_file_mat, 1) % So for each value in our audio_file_mat (use length b/c non int value)
+for x = 1:length(audio_file_mat) % So for each value in our audio_file_mat (use length b/c non int value)
     [audio_data_mat{x}, ~] = audioread(audio_file_mat{x}); % We fill each column value of audio_data_mat with read audio data from audio_file_mat
 end 
 
@@ -84,6 +84,8 @@ for trial_number = 1:size(sorted_rep_emat, 1)
         PsychPortAudio('FillBuffer', pahandle, finalpannedaudio');
         PsychPortAudio('Start', pahandle, 1, 0, 1);
         WaitSecs(1/44100);
+        % try PsychPortAudio('GetAudioTime', pahandle);
+
     end 
 
     % Keyboard Input
