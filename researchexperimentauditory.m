@@ -29,8 +29,8 @@ rep_emat = repmat(e_mat, n_repeat, 1); % Repeats the matrix n_repeat number of t
 % provides trial numbers in a different order than how they are listed in
 % the randomized matrix
 sorted_rep_emat = sortrows(rep_emat, 1); % Sorts the experimental matrix by trial (makes visualization easier)
-response_array = [sorted_rep_emat(:,1), zeros(size(sorted_rep_emat, 1), 1)]; % Makes an empty array where we can store our keyboard input responses
-% MIGHT NEED TO MAKE THIS A CELL BECAUSE OF THE AUDIO STIM LATER!
+response_array = cell(size(sorted_rep_emat, 1), 2); % Makes an empty array where we can store our keyboard input responses, num of trial x num of trial 
+
 
 % column 1 will be the trial number and column 2 will be the keyboard input
 
@@ -100,7 +100,8 @@ for trial_number = 1:size(sorted_rep_emat, 1)
     end
 
     % store key input into our response matrix
-    response_array{trial_number} = key_input; 
+    response_array{trial_number, 1} = trial_number;
+    response_array{trial_number, 2} = key_input; 
 
     % Stop audio and clear screen
     PsychPortAudio('Stop', pahandle);
