@@ -96,8 +96,8 @@ for trial_number = 1:size(sorted_rep_emat, 1)
             key_input = KbName(find(keyCode)); % Stores the key that has been pressed
             if ~ismember(key_input, keys_allowed)
                 key_input = '';
+            end
         end
-    end
 
     % store key input into our response matrix
     response_array{trial_number} = key_input; 
@@ -105,12 +105,12 @@ for trial_number = 1:size(sorted_rep_emat, 1)
     % Stop audio and clear screen
     PsychPortAudio('Stop', pahandle);
     Screen('Flip', WindowCenter);
+    end
 end
 
 PsychPortAudio('Close', pahandle);
 Screen('CloseAll');
 ShowCursor();
-
 
 % PLEASE ADD WAY TO MAKE RESPONSES INTO A TXT FILE FOR FURTHER USE
 % NEED TO DOWNLOAD AUDIO FILES
