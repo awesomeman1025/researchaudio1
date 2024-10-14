@@ -112,7 +112,8 @@ PsychPortAudio('Close', pahandle);
 Screen('CloseAll');
 ShowCursor();
 
+
 % PLEASE ADD WAY TO MAKE RESPONSES INTO A TXT FILE FOR FURTHER USE
 % NEED TO DOWNLOAD AUDIO FILES
-% NEED TO PIVOT AUDIO FROM loudness to audio tool box
-% add text, display text, etc. 
+
+
